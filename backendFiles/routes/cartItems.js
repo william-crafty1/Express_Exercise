@@ -37,7 +37,8 @@ cartItems.get('/:id', (req, res) => {
         res.send(item);
     }
     else{
-        res.send("No object found with that id!");
+        res.sendStatus(404);
+        console.log("No object found with that id!");
     }
 })
 
