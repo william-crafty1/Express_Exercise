@@ -44,7 +44,7 @@ cartItems.get('/:id', (req, res) => {
 cartItems.post('/', (req, res) => {
     const lastElementIndex = cart.length - 1;
     const newId = cart[lastElementIndex].id + 1;
-    const newItem = { id: newId, product: 'Car', price: 55, quantity: 7 }
+    const newItem = { id: newId, product: req.body.product, price: req.body.price, quantity: req.body.quantity }
     cart.push(newItem);
     console.log(cart)
     res.send('Added a new item to the cart!')
