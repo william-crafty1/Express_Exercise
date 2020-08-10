@@ -13,6 +13,11 @@ let cart = [
 ]
 
 cartItems.get('/', (req, res) => {
+    const cartItemsToSend = cart;
+    res.send(cartItemsToSend);
+})
+
+cartItems.get('/', (req, res) => {
     let newCartItems = cart
     if(req.query.maxPrice){
         newCartItems = newCartItems.filter(c => c.price <= req.query.maxPrice)
